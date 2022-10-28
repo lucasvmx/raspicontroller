@@ -35,6 +35,17 @@ Window {
         anchors.fill: parent
         color: "green"
 
+
+        Label {
+            id: titulo
+            font.pointSize: fonts.fontSize + 30
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            anchors.topMargin: titulo.height
+            text: "BUZZER"
+            color: "white"
+        }
+
         Label {
             id: labelBeep
             text: qsTr("Duração do beep (segundos)")
@@ -58,7 +69,7 @@ Window {
                 let quantidade = sliderQuantidadeVezes.value
                 let tempo = sliderTempo.value
 
-                labelResumo.text = `${quantidade} beep(s) por\n${tempo} segundo(s)`
+                labelResumo.text = `${quantidade} beep(s) com duração de\n${tempo} segundo(s)`
             }
         }
 
