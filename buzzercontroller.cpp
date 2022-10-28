@@ -39,15 +39,14 @@ void BuzzerController::setTempo(uint tempo)
 
 void BuzzerController::acionar()
 {
-    QUrl url("http://127.0.0.1:2711/buzzer");
+    QUrl url("http://192.168.1.2:2711/buzzer");
     QNetworkRequest req(url);
     QString payload;
 
+    qDebug() << "Enviando request para" << url;
     payload = QString("{\"estado\":%1,\"tempo_segundos\":%2,\"quantidade_vezes\":%3}").arg(estado).arg(time).arg(qtd);
     qDebug() << "payload" << payload.toStdString().c_str();
-
     req.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("application/json"));
-
     reply = manager->post(req, payload.toLatin1());
 }
 
